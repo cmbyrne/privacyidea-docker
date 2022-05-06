@@ -83,9 +83,9 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip install wheel && \
-    pip install supervisor uwsgi pymysql-sa PyMySQL pg8000 && \
+    pip install supervisor uwsgi pymysql-sa PyMySQL psycopg2-binary  && \
     pip install -r https://raw.githubusercontent.com/privacyidea/privacyidea/v${PI_VERSION}/requirements.txt && \
-    pip install git+https://github.com/privacyidea/privacyidea.git@v${PI_VERSION}
+    pip install git+https://github.com/cmbyrne/privacyidea.git
 
 # Copy start.sh script that will check for a /app/prestart.sh script and run it before starting the app
 # Copy the entrypoint that will generate Nginx additional configs
